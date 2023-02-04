@@ -22,12 +22,17 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const weatherData = await fetchWeather.json();
   const fetchImages = await fetch(
     `https://api.unsplash.com/search/photos?page=1&query=${
-      `landmarks in ` + countryData?.[0].name?.common
+      `landmarks in ` + countryData?.[0]?.name?.common
     }&client_id=${process.env.NEXT_PUBLIC_UNSPLASH_KEY}`
   );
   const countryImages = await fetchImages.json();
+  const fetchDate = await fetch(
+    `https://worldtimeapi.org/api/timezone/${countryData?.[0]?.region}/${countryData?.[0]?.capital?.[0]}`
+  );
+  const unformattedDate = await fetchDate.json();
+
   return {
-    props: { countryData, weatherData, countryImages },
+    props: { countryData, weatherData, countryImages, unformattedDate },
   };
 };
 
@@ -35,21 +40,29 @@ export default function CountryPage({
   countryData,
   weatherData,
   countryImages,
+  unformattedDate,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const router = useRouter();
   const { country } = router.query;
   const { data, error, isLoading } = useSWR(
-    `https://restcountries.com/v3.1/name/${country}`,
+    `https://api.unsplash.com/search/photos?page=1&query=${
+      `landmarks in ` + countryData?.[0]?.name?.common
+    }&client_id=${process.env.NEXT_PUBLIC_UNSPLASH_KEY}`,
     fetcher
   );
   if (error) router.push(`/404`);
   if (isLoading) return <div>Loading...</div>;
   console.log(`Images: `, countryImages);
   console.log(`weather Data: `, weatherData);
+  const formattedDate = new Date(unformattedDate?.datetime);
+  console.log(formattedDate.toLocaleString());
+  const imageLoader = () => {
+    return countryImages?.results?.[0].urls?.full;
+  };
   return (
     <>
       <Head>
-        <title>{country}</title>
+        <title>{countryData[0]?.name?.common}</title>
         <meta name="description" content="A website that provides information about countries" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
@@ -57,10 +70,12 @@ export default function CountryPage({
         <section>
           <div className="w-screen h-screen flex flex-col gap-5 justify-center items-center">
             <h1 className="text-red-900 text-7xl">{countryData[0]?.name?.official}</h1>
-            <img
-              className="w-1/2 h-1/2"
+            <Image
+              loader={imageLoader}
               src={countryImages?.results?.[0].urls?.full}
-              alt="country Image"
+              width={800}
+              height={800}
+              alt="Picture of the country searched "
             />
           </div>
         </section>
