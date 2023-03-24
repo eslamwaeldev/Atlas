@@ -1,12 +1,10 @@
-import { GetServerSideProps } from "next";
-import { InferGetServerSidePropsType } from "next";
-import axios from "axios";
 import { fetcher } from "lib/axios";
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Head from "next/head";
-import { useRouter } from "next/router";
-import React, { useEffect, useMemo, useState } from "react";
-import useSWR from "swr";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { useMemo } from "react";
+import useSWR from "swr";
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const fetchCountry = await fetch(`https://restcountries.com/v3.1/name/${params?.country}`);
