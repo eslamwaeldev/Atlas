@@ -15,16 +15,16 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
       </Head>
-      <main className="w-screen h-screen antialiased">
-        <Parallax ref={parallax} pages={3}>
-          <ParallaxLayer speed={-0.5}>
+      <main className="w-screen h-screen antialiased ">
+        <Parallax ref={parallax} pages={3.25}>
+          <ParallaxLayer speed={-0.6}>
             <Landing parallax={parallax} />
           </ParallaxLayer>
           <ParallaxLayer offset={1.3} speed={-0.3}>
-            <Intro />
+            <Intro parallax={parallax} />
           </ParallaxLayer>
-          <ParallaxLayer offset={2} speed={0.2}>
-            <Search />
+          <ParallaxLayer offset={2.3} speed={0.2}>
+            <Search parallax={parallax} />
           </ParallaxLayer>
         </Parallax>
       </main>
