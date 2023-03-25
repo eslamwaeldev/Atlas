@@ -1,14 +1,27 @@
-import { inter, lora } from "lib/fonts/fonts";
-import Link from "next/link";
+import { IParallax } from "@react-spring/parallax";
+import { lora } from "lib/fonts/fonts";
+import { MutableRefObject } from "react";
 
-const Intro = () => {
+export interface Props {
+  parallax: MutableRefObject<IParallax>;
+}
+
+const Intro = ({ parallax }: Props) => {
   return (
     <>
       <div
         id="intro"
-        className="w-full h-full bg-atlas-intro flex flex-col gap-20 text-atlas-gold overflow-hidden items-center"
+        className="w-full h-full bg-atlas-intro flex flex-col gap-20 text-atlas-gold overflow-hidden items-center relative"
       >
-        <div className="flex flex-col justify-center items-center gap-8 subpixel-antialiased text-center leading-atlas-heading-sm pt-10 h-2/3">
+        <button
+          className="cursor-pointer  absolute right-20 top-10 w-7 h-7 flex justify-center items-center"
+          onClick={() => {
+            parallax.current.scrollTo(0);
+          }}
+        >
+          <span className="w-5 h-5 block rotate-45 border-white border-solid border-t-4 border-l-4"></span>
+        </button>
+        <div className="flex flex-col justify-center items-center gap-8 subpixel-antialiased text-center leading-atlas-heading-sm pt-10 h-full">
           <h1 className={`${lora.variable} font-semibold text-5xl leading-atlas-heading `}>
             Welcome to Atlas
           </h1>
