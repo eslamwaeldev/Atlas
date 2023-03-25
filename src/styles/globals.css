@@ -2,5 +2,34 @@
 html {
   background-image: linear-gradient(116.82deg, #1e1719 66.98%, #172027 87.29%, #112732 100%);
 }
+.arrow {
+  transform: translate(-50%, -50%);
+  transform: rotate(0deg);
+  cursor: pointer;
+}
+
+.arrow span {
+  display: block;
+  width: 1vw;
+  height: 1vw;
+  transform: rotate(45deg);
+  margin: -10px;
+}
+.arrow span:nth-child(1) {
+  border-bottom: 3px solid white;
+  border-right: 3px solid white;
+}
+
+.arrow span:nth-child(2) {
+  border-bottom: 3px solid #ffd88c;
+  border-right: 3px solid #ffd88c;
+  animation-delay: -0.2s;
+}
+
+.arrow span:nth-child(3) {
+  border-bottom: 3px solid #ffc045;
+  border-right: 3px solid #ffc045;
+  animation-delay: -0.4s;
+}
 @tailwind components;
 @tailwind utilities;
