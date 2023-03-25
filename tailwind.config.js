@@ -23,6 +23,24 @@ module.exports = {
       fontSize: {
         hover: "2rem",
       },
+      keyframes: {
+        fall: {
+          "0%": {
+            opacity: "0",
+            transform: "rotate(45deg) translate(-20px, -20px)",
+          },
+          "50%": {
+            opacity: "1",
+          },
+          "100%": {
+            opacity: "0",
+            transform: "rotate(45deg) translate(20px, 20px)",
+          },
+        },
+      },
+      animation: {
+        fall: "fall 2s infinite",
+      },
     },
   },
   plugins: [],
