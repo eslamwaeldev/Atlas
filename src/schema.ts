@@ -75,8 +75,14 @@ export type ImageUrls = {
   thumb: string;
 };
 
+export type ImageUser = {
+  first_name: string;
+};
+
 export type CountryImageUrls = {
   urls: ImageUrls;
+  user: ImageUser;
+  description: string;
 };
 export type CountryImages = {
   results: [CountryImageUrls];

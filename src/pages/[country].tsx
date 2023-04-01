@@ -172,9 +172,15 @@ export default function CountryPage({
                 src={countryImages?.results?.[0].urls?.full}
                 width="500"
                 height="340"
-                alt="Picture of the country searched"
+                alt={`A photo of ${countryImages?.results?.[0].description} `}
                 className="h-auto w-101 object-contain rounded-lg"
               />
+              <p className="text-atlas-gold text-sm antialiased ">
+                This photo is taken by <em>{countryImages?.results?.[0].user.first_name}</em> on{" "}
+                <a href="https://unsplash.com/" className="underline">
+                  Unsplash
+                </a>
+              </p>
             </div>
             <div className="flex flex-col  gap-4 2xl:text-3xl text-2xl">
               <div className="flex pb-4 h-full items-center w-full 2xl:gap-40 gap-24">
