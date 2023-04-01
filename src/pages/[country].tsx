@@ -27,7 +27,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({ params }) 
   } else {
     country = params?.country as string;
   }
-  console.log(country);
+
   const fetchCountry = await fetch(`https://restcountries.com/v3.1/name/${country}`);
   const countryData = await fetchCountry.json();
 
@@ -38,7 +38,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({ params }) 
   }
 
   const filterCountryData = () => {
-    console.log(countryData.length);
     if (countryData?.length > 1) {
       const requiredCountry = countryData.find(
         (countryObj: Country) => countryObj.name.common.toLowerCase() === country.toLowerCase()
@@ -120,7 +119,6 @@ export default function CountryPage({
   }, [start, filteredCountryData?.borders, filteredCountryData?.name.common]);
 
   const currencyKeys = Object.keys(filteredCountryData?.currencies);
-  console.log(countryImages);
 
   return (
     <>
@@ -176,7 +174,8 @@ export default function CountryPage({
                 className="h-auto w-101 object-contain rounded-lg"
               />
               <p className="text-atlas-gold text-sm antialiased ">
-                This photo is taken by <em>{countryImages?.results?.[0].user.first_name}</em> on{" "}
+                This photo is taken by <em>{countryImages?.results?.[0].user.first_name}</em>{" "}
+                <em>{countryImages?.results?.[0].user.last_name}</em> on{" "}
                 <a href="https://unsplash.com/" className="underline">
                   Unsplash
                 </a>
