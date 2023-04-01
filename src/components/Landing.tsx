@@ -12,7 +12,7 @@ const Landing = ({ parallax }: Props) => {
   return (
     <>
       <div
-        className={`${lora.variable} font-normal h-full w-full text-atlas-gold bg-atlas-world bg-cover bg-no-repeat bg-center bg-blend-lighten overflow-hidden relative`}
+        className={`font-heading font-normal h-full w-full text-atlas-gold bg-atlas-world bg-cover bg-no-repeat bg-center bg-blend-lighten overflow-hidden relative`}
       >
         <div className="h-20 w-full flex gap-72 2xl:gap-[40rem] justify-center items-center relative mt-2">
           <div className="w-36 flex items-center absolute left-16">
