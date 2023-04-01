@@ -3,10 +3,19 @@ import Landing from "@/components/Landing";
 import Search from "@/components/Search";
 import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
 import Head from "next/head";
-import { useRef } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useRef } from "react";
 
 export default function Home() {
   const parallax = useRef<IParallax>(null!);
+  const router = useRouter();
+  useEffect(() => {
+    const { search } = router.query;
+    console.log(search);
+    if (search) {
+      parallax.current.scrollTo(2.5);
+    }
+  }, [router.query]);
   return (
     <>
       <Head>
@@ -15,7 +24,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
       </Head>
-      <main className="w-screen h-screen antialiased ">
+      <main className="w-screen h-full min-h-screen  antialiased ">
         <Parallax ref={parallax} pages={3.25}>
           <ParallaxLayer speed={-0.6}>
             <Landing parallax={parallax} />
