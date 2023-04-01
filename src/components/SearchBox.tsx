@@ -38,7 +38,7 @@ export default function SearchBox() {
         );
 
   return (
-    <div className="w-1/2 h-full items-center justify-center">
+    <div className="md:w-1/2 w-2/3 h-full items-center justify-center">
       <Combobox
         value={selected}
         onChange={(event) => {

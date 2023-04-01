@@ -43,22 +43,24 @@ export default function Custom404() {
             <Image
               src={world404}
               alt="World"
-              className="w-110 !max-w-max absolute right-40 -top-32 object-cover"
+              className="w-110 !max-w-max absolute md:right-40 -right-32 md:-top-32 top-10 object-cover"
             />
           </div>
           <div className="w-full h-full relative">
             <Image
               src={person404}
               alt="World"
-              className="w-56 h-100 !max-w-max absolute left-24 top-80 object-cover"
+              className="w-56 md:h-100 h-60 !max-w-max absolute md:left-24 left-6 md:top-80 top-[32rem] object-cover"
             />
           </div>
-          <div className="fixed text-atlas-gold w-110 right-40 top-[38rem] flex-col gap-4 flex items-center justify-center antialiased">
-            <h1 className={` font-heading font-semibold text-9xl`}>404</h1>
-            <p className="font-sans text-xl font-semibold">
+          <div className="fixed text-atlas-gold w-110 md:right-40 -right-60 md:top-[38rem] top-[28rem] flex-col gap-4 flex items-center justify-center antialiased">
+            <h1 className={` font-heading font-semibold md:text-9xl text-4xl`}>404</h1>
+            <p className="font-sans md:text-xl text-sm font-semibold">
               Oops, sorry this isn’t the country you’re looking for.
             </p>
-            <p className="font-sans ">Try to enter a country’s name in the search page please.</p>
+            <p className="font-sans text-xs">
+              Try to enter a country’s name in the search page please.
+            </p>
           </div>
         </section>
       </main>

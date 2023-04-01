@@ -12,10 +12,10 @@ const Landing = ({ parallax }: Props) => {
   return (
     <>
       <div
-        className={`font-heading font-normal h-full w-full text-atlas-gold bg-atlas-world bg-cover bg-no-repeat bg-center bg-blend-lighten overflow-hidden relative`}
+        className={`font-heading font-normal h-full w-full text-atlas-gold bg-atlas-world md:bg-cover  bg-no-repeat bg-center bg-blend-lighten overflow-hidden relative`}
       >
-        <div className="h-20 w-full flex gap-72 2xl:gap-[40rem] justify-center items-center relative mt-2">
-          <div className="w-36 flex items-center absolute left-16">
+        <div className="h-20 w-full flex md:flex-row flex-col   gap-72 2xl:gap-[40rem] justify-center items-center relative mt-2">
+          <div className="w-36 flex items-center absolute md:left-16 top-20">
             <Link href="/" className="w-full ">
               <h1 className="text-5xl leading-atlas-heading">ATLAS</h1>
             </Link>

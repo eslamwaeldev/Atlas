@@ -130,7 +130,7 @@ export default function CountryPage({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
       </Head>
-      <main className="w-full min-h-screen h-full flex flex-col 2xl:gap-16 gap-12">
+      <main className="w-full min-h-screen h-full flex flex-col 2xl:gap-16 gap-24">
         <section className="w-full 2xl:pt-12 pt-4 relative">
           <div className={`font-heading w-36 flex items-center absolute left-16 text-atlas-gold`}>
             <Link href="/" className="w-full">
@@ -154,13 +154,13 @@ export default function CountryPage({
         </section>
         <section className="w-full flex flex-col justify-center items-center 2xl:gap-16 gap-12 mb-10">
           <div
-            className={`font-heading w-full flex justify-center items-center gap-1 text-4xl text-atlas-gold antialiased`}
+            className={`font-heading w-full flex justify-center items-center gap-1 md:text-4xl text-xl text-atlas-gold antialiased`}
           >
             <h1>{filteredCountryData?.name?.official},</h1>
             <h1>{`(${filteredCountryData?.name?.common})`}</h1>
           </div>
-          <div className="flex md:flex-row flex-col relative justify-start items-start w-full 2xl:pl-40 pl-16 2xl:gap-60 gap-20">
-            <div className="flex flex-col justify-center items-center 2xl:gap-8 gap-4 pt-8">
+          <div className="flex md:flex-row flex-col relative justify-start items-start w-full 2xl:pl-40 md:pl-16 p-2 md:p-0 2xl:gap-60 gap-20">
+            <div className="flex flex-col justify-center items-center 2xl:gap-8 gap-4 md:pt-8">
               <Image
                 src={filteredCountryData?.flags?.svg}
                 width="275"
@@ -182,18 +182,18 @@ export default function CountryPage({
                 </a>
               </p>
             </div>
-            <div className="flex flex-col  gap-4 2xl:text-3xl text-2xl">
-              <div className="flex pb-4 h-full items-center w-full 2xl:gap-40 gap-24">
+            <div className="flex flex-col gap-4 2xl:text-3xl md:text-2xl text-lg">
+              <div className="flex pb-4 h-full items-center w-full 2xl:gap-40 md:gap-24 gap-12">
                 <p className="text-atlas-gold font-semibold w-60">Content: </p>
                 <p className="text-gray-50 antialiased ">{filteredCountryData?.continents?.[0]}</p>
               </div>
-              <hr className="h-px rounded-lg bg-[#F3F4F6] 2xl:w-104 w-100 relative 2xl:left-8 left-4  border-0 " />
-              <div className="flex py-10 h-full items-center w-full  2xl:gap-40 gap-24    ">
+              <hr className="h-px rounded-lg bg-[#F3F4F6] 2xl:w-104 md:w-100 w-80 relative 2xl:left-8 left-4  border-0 " />
+              <div className="flex py-10 h-full items-center w-full  2xl:gap-40 md:gap-24 gap-12    ">
                 <p className="text-atlas-gold font-semibold w-60">Capital: </p>
                 <p className="text-gray-50 antialiased ">{filteredCountryData?.capital?.[0]}</p>
               </div>
-              <hr className="h-px rounded-lg bg-[#F3F4F6] 2xl:w-104 w-100 relative 2xl:left-8 left-4  border-0 " />
-              <div className="flex py-10 h-full items-center w-full 2xl:gap-40 gap-24 ">
+              <hr className="h-px rounded-lg bg-[#F3F4F6] 2xl:w-104 md:w-100 w-80 relative 2xl:left-8 left-4  border-0 " />
+              <div className="flex py-10 h-full items-center w-full 2xl:gap-40 md:gap-24 gap-12 ">
                 <p className="text-atlas-gold font-semibold w-60">Current Time: </p>
                 <div className="text-gray-50 relative antialiased flex items-center gap-4">
                   <p>
@@ -210,7 +210,7 @@ export default function CountryPage({
                       width={156}
                       height={156}
                       alt="Night Time"
-                      className="w-40 h-40 !max-w-max  absolute 2xl:left-44 left-28"
+                      className="w-40 h-40 !max-w-max  absolute 2xl:left-44 md:left-28 -left-10 top-1"
                     />
                   ) : (
                     <Image
@@ -218,13 +218,13 @@ export default function CountryPage({
                       width={156}
                       height={156}
                       alt="Night Time"
-                      className="w-40 h-40 !max-w-max  absolute 2xl:left-44 left-28"
+                      className="w-40 h-40 !max-w-max  absolute 2xl:left-44 md:left-28 -left-10 top-1"
                     />
                   )}
                 </div>
               </div>
-              <hr className="h-px rounded-lg bg-[#F3F4F6] 2xl:w-104 w-100 relative 2xl:left-8 left-4  border-0 " />
-              <div className="flex py-10 h-full items-center w-full  2xl:gap-36 gap-24 ">
+              <hr className="h-px rounded-lg bg-[#F3F4F6] 2xl:w-104 md:w-100 w-80 relative 2xl:left-8 left-4  border-0 " />
+              <div className="flex py-10 h-full items-center w-full  2xl:gap-36 md:gap-24 gap-12 ">
                 <p className="text-atlas-gold font-semibold w-64">Current Weather: </p>
                 <p className="text-gray-50 antialiased ">
                   {weather?.main.temp}
@@ -234,16 +234,16 @@ export default function CountryPage({
                   </span>
                 </p>
               </div>
-              <hr className="h-px rounded-lg bg-[#F3F4F6] 2xl:w-104 w-100 relative 2xl:left-8 left-4  border-0 " />
-              <div className="flex py-10 h-full items-center w-full  2xl:gap-40 gap-24 ">
+              <hr className="h-px rounded-lg bg-[#F3F4F6] 2xl:w-104 md:w-100 w-80 relative 2xl:left-8 left-4  border-0 " />
+              <div className="flex py-10 h-full items-center w-full  2xl:gap-40 md:gap-24 gap-12 ">
                 <p className="text-atlas-gold font-semibold w-60">Currency: </p>
                 <p className="text-gray-50 antialiased ">
                   {filteredCountryData?.currencies[currencyKeys[0]].name}{" "}
                   {filteredCountryData?.currencies[currencyKeys[0]].symbol}
                 </p>
               </div>
-              <hr className="h-px rounded-lg bg-[#F3F4F6] 2xl:w-104 w-100 relative 2xl:left-8 left-4  border-0 " />
-              <div className="flex py-10 h-full items-center w-full  2xl:gap-40 gap-24 ">
+              <hr className="h-px rounded-lg bg-[#F3F4F6] 2xl:w-104 md:w-100 w-80 relative 2xl:left-8 left-4  border-0 " />
+              <div className="flex py-10 h-full items-center w-full  2xl:gap-40 md:gap-24 gap-12 ">
                 <p className="text-atlas-gold font-semibold w-60">Population: </p>
                 <p className="text-gray-50 antialiased ">
                   {filteredCountryData?.population} inhabitants
@@ -251,8 +251,8 @@ export default function CountryPage({
               </div>
               {filteredCountryData?.borders && (
                 <>
-                  <hr className="h-px rounded-lg bg-[#F3F4F6] 2xl:w-104 w-100 relative 2xl:left-8 left-4  border-0 " />
-                  <div className="flex py-10 h-full items-center w-full  2xl:gap-28 gap-24">
+                  <hr className="h-px rounded-lg bg-[#F3F4F6] 2xl:w-104 md:w-100 w-80 relative 2xl:left-8 left-4  border-0 " />
+                  <div className="flex py-10 h-full items-center w-full  2xl:gap-28 md:gap-24 gap-12">
                     <p className="text-atlas-gold font-semibold w-72">Bordering countries: </p>
                     <p className="text-gray-50 antialiased w-1/4">
                       {borders?.map((border, index) => {
