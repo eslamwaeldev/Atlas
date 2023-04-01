@@ -13,9 +13,14 @@ const Search = ({ parallax }: Props) => {
       <div className="w-full h-full bg-atlas-search flex flex-col gap-52 text-atlas-gold overflow-hidden relative">
         <div className="pl-16 pr-20 flex justify-between relative mt-2">
           <div className="h-20 w-36 flex items-center">
-            <Link href="/" className="w-full ">
+            <button
+              className="w-full "
+              onClick={() => {
+                parallax.current.scrollTo(0);
+              }}
+            >
               <h1 className="text-5xl leading-atlas-heading">ATLAS</h1>
-            </Link>
+            </button>
           </div>
           <button
             className="cursor-pointer  absolute right-20 top-10 w-7 h-7 flex justify-center items-center"
