@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 import { Combobox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { useRouter } from "next/router";
+import { CountrySearchEvent } from "@/schema";
 
 type name = {
   common: string;
@@ -40,8 +41,7 @@ export default function SearchBox() {
   return (
     <div className="md:w-1/2 w-2/3 h-full items-center justify-center">
       <Combobox
-        value={selected}
-        onChange={(event) => {
+        onChange={(event: CountrySearchEvent) => {
           router.push(`/${event.name.common}`);
         }}
       >
