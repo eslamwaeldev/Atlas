@@ -1,3 +1,5 @@
+import { type } from "os";
+
 export type CountryName = {
   common: string;
   official: string;
@@ -25,6 +27,10 @@ export type Country = {
   flags: CountryFlags;
   continents: [string];
   population: number;
+};
+
+export type CountrySearchEvent = {
+  name: CountryName;
 };
 
 export type Time = {
@@ -75,9 +81,14 @@ export type ImageUrls = {
   thumb: string;
 };
 
+export type ImageUserLink = {
+  html: string;
+};
+
 export type ImageUser = {
   first_name: string;
   last_name: string;
+  links: ImageUserLink;
 };
 
 export type CountryImageUrls = {
