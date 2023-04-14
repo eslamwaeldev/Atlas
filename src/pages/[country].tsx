@@ -1,5 +1,6 @@
 import { Country, CountryImages, Time, Weather } from "@/schema";
 import { useImmediateInterval } from "@refolded/hooks";
+import { log } from "console";
 import { weatherFilter } from "lib/filters";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Head from "next/head";
@@ -58,7 +59,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({ params }) 
     `https://api.unsplash.com/search/photos?page=1&query=${filteredCountryData?.name?.common}&client_id=${process.env.NEXT_PUBLIC_UNSPLASH_KEY}`
   );
   const countryImages: CountryImages = await fetchImages.json();
-
   return {
     props: { filteredCountryData, weather, countryImages },
   };
@@ -76,6 +76,7 @@ export default function CountryPage({
     lat: filteredCountryData?.latlng?.[0],
     long: filteredCountryData?.latlng?.[1],
   };
+  console.log(countryImages);
 
   const dateFetcher = async () => {
     await fetch(`/api/getCountryDate`, {
@@ -174,9 +175,19 @@ export default function CountryPage({
                 className="h-auto w-101 object-contain rounded-lg"
               />
               <p className="text-atlas-gold text-sm antialiased ">
-                This photo is taken by <em>{countryImages?.results?.[0].user.first_name}</em>{" "}
-                <em>{countryImages?.results?.[0].user.last_name}</em> on{" "}
-                <a href="https://unsplash.com/" className="underline">
+                This photo is taken by{" "}
+                <a
+                  className="underline"
+                  href={`${countryImages?.results?.[0].user}?utm_source=Atlas&utm_medium=referral`}
+                >
+                  <em>{countryImages?.results?.[0].user.first_name}</em>{" "}
+                  <em>{countryImages?.results?.[0].user.last_name}</em>
+                </a>{" "}
+                on{" "}
+                <a
+                  href="https://unsplash.com/?utm_source=Atlas&utm_medium=referral"
+                  className="underline"
+                >
                   Unsplash
                 </a>
               </p>
