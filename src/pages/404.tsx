@@ -16,7 +16,7 @@ export default function Custom404() {
         <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
       </Head>
 
-      <main className="w-full min-h-screen h-full flex flex-col 2xl:gap-16 gap-12 bg-atlas-404">
+      <main className="w-full min-h-screen h-full flex flex-col 2xl:gap-16 gap-12 bg-atlas-404 overflow-y-hidden">
         <section className="w-full 2xl:pt-12 pt-4 relative">
           <div className={`font-heading w-36 flex items-center absolute left-16 text-atlas-gold`}>
             <Link href="/" className="w-full">
@@ -43,18 +43,18 @@ export default function Custom404() {
             <Image
               src={world404}
               alt="World"
-              className="w-110 !max-w-max absolute md:right-40 -right-32 md:-top-32 top-10 object-cover"
+              className="w-110 !max-w-max absolute 2xl:right-40 md:-top-28 md:-right-28 -right-32 2xl:-top-32 top-10 object-cover"
             />
           </div>
           <div className="w-full h-full relative">
             <Image
               src={person404}
               alt="World"
-              className="w-56 md:h-100 h-60 !max-w-max absolute md:left-24 left-6 md:top-80 top-[32rem] object-cover"
+              className="w-56 2xl:h-100 md:h-80 h-60 !max-w-max absolute md:left-24 left-6 2xl:top-80 md:top-60 top-[32rem] object-cover"
             />
           </div>
-          <div className="fixed text-atlas-gold w-110 md:right-40 -right-60 md:top-[38rem] top-[28rem] flex-col gap-4 flex items-center justify-center antialiased">
-            <h1 className={` font-heading font-semibold md:text-9xl text-4xl`}>404</h1>
+          <div className="fixed text-atlas-gold w-110 2xl:right-40 md:-right-14 md:top-[31rem] -right-60 2xl:top-[38rem] top-[28rem] flex-col gap-4 flex items-center justify-center antialiased">
+            <h1 className={` font-heading font-semibold 2xl:text-9xl md:text-7xl text-4xl`}>404</h1>
             <p className="font-sans md:text-xl text-sm font-semibold">
               Oops, sorry this isn’t the country you’re looking for.
             </p>
