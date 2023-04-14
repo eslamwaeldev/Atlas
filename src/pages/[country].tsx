@@ -178,7 +178,7 @@ export default function CountryPage({
                 This photo is taken by{" "}
                 <a
                   className="underline"
-                  href={`${countryImages?.results?.[0].user}?utm_source=Atlas&utm_medium=referral`}
+                  href={`${countryImages?.results?.[0].user.links.html}?utm_source=Atlas&utm_medium=referral`}
                 >
                   <em>{countryImages?.results?.[0].user.first_name}</em>{" "}
                   <em>{countryImages?.results?.[0].user.last_name}</em>
